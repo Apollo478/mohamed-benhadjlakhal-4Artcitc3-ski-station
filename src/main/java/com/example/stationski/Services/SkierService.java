@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class SkierService {
-   private SkierRepository skierRepository ;
+   private final SkierRepository skierRepository ;
    @Autowired
    public SkierService(SkierRepository skierRepository) {
        this.skierRepository = skierRepository;
