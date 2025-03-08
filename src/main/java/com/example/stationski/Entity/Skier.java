@@ -1,5 +1,7 @@
 package com.example.stationski.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,7 +18,8 @@ public class Skier {
     private String lastName;
     private String city;
     private Date dateOfBirth;
-    @OneToOne(mappedBy = "skier", optional = false)
+    @OneToOne(mappedBy = "skier", optional = false,cascade = CascadeType.ALL)
+    @JsonBackReference
     private Subscription subscription;
     @ManyToMany
     @JoinTable(
